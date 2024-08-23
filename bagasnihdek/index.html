@@ -6,6 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="main.css">
     <link rel="icon" href="img/flowers.png" type="image/x-icon">
+    <style>
+        .fixed-bottom-right {
+            position: fixed;
+            bottom: 16px;
+            right: 16px;
+        }
+    </style>
     <title>bgsgtgbgt</title>
 </head>
 <body class="container">
@@ -306,7 +313,20 @@
         </div>
       </div>
     </div>
-    
+    <a id="downloadButton" href="#" class="fixed-bottom-right bg-blue-500 text-white px-4 py-2 rounded shadow-lg hover:bg-blue-600 transition">
+        Download
+    </a>
     <script src="main.js"></script>
+    <script>
+        document.getElementById('downloadButton').addEventListener('click', function(event) {
+            event.preventDefault();
+            const link = document.createElement('a');
+            link.href = 'bagasnihdek.zip'; // Nama file yang akan didownload
+            link.download = 'bagasnihdek.zip';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        });
+    </script>
   </body>
 </html>
