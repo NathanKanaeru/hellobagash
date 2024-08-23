@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Display with Copy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <style>
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1e1e1e;
+            color: #e8e8e8;
+        }
+
+        pre {
+            background-color: #2d2d2d;
+            padding: 1rem;
+            border-radius: 0.375rem;
+            position: relative;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            white-space: pre-wrap;
+            overflow-x: auto;
+            margin-top: 1rem;
+        }
+
+        pre code {
+            font-family: Consolas, "Courier New", monospace;
+        }
+        
+        .file-name {
+            position: absolute;
+            top: 0.5rem;
+            left: 0.5rem;
+            background-color: transparent;
+            color: #a1a1aa;
+            font-size: 0.75rem;
+            padding: 0.25rem 0; /* Padding yang disesuaikan */
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .file-name {
+            position: absolute;
+            top: 0.5rem;
+            left: 0.5rem;
+            background-color: transparent;
+            color: #a1a1aa;
+            font-size: 0.75rem;
+            padding: 0.25rem;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            background-color: #1f2937;
+            color: white;
+            padding: 0.25rem 0.5rem;
+            font-size: 0.75rem;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            border: none;
+            transition: background-color 0.2s;
+        }
+
+
+        .copy-btn:hover {
+            background-color: #374151;
+        }
+
+        .copy-btn:active {
+            background-color: #111827;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen flex items-center justify-center p-4">
+
+    <div class="w-full max-w-3xl bg-gray-900 p-6 rounded-lg shadow-md">
+        <h1 class="text-2xl font-bold mb-4">Example Code</h1>
+        <div class="relative">
+            <div class="file-name">index.html</div>
+            <pre id="code"><button class="copy-btn" onclick="copyCode()">Copy</button><code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Hello World&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+            </code></pre>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script>
+        function copyCode() {
+            const code = document.getElementById('code').innerText;
+            navigator.clipboard.writeText(code).then(() => {
+                alert('Code copied to clipboard!');
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        }
+    </script>
+</body>
+
+</html>
